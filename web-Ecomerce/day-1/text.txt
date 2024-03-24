@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validasi Form</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama"><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password<br><br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+
+        <input type="submit" id="submitButton" value="Submit" disabled>
+        <p id="warningMessage" style="color: red;"></p>
+    </form>
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+
+        document.getElementById("myForm").addEventListener("input", function() {
+            var namaField = document.getElementById("nama");
+            var passwordField = document.getElementById("password");
+            var emailField = document.getElementById("email");
+            var submitButton = document.getElementById("submitButton");
+            var warningMessage = document.getElementById("warningMessage");
+
+            // Cek apakah salah satu input kosong
+            if (namaField.value === "" || passwordField.value === "" || emailField.value === "") {
+                submitButton.disabled = true;
+                warningMessage.textContent = "Semua input harus diisi!";
+            } else {
+                submitButton.disabled = false;
+                warningMessage.textContent = "";
+            }
+        });
+
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            var namaField = document.getElementById("nama");
+            var passwordField = document.getElementById("password");
+            var emailField = document.getElementById("email");
+
+            // Validasi Nama
+            if (namaField.value.length <= 4 || /\d/.test(namaField.value) || /[^a-zA-Z]/.test(namaField.value)) {
+                alert("Nama harus lebih dari 4 karakter dan tidak boleh mengandung angka atau simbol.");
+                event.preventDefault();
+            }
+
+            // Validasi Password
+            var passwordPattern = /^(?=.*[0-9])[\w_]+$/;
+            if (passwordField.value.length <= 5 || !passwordPattern.test(passwordField.value)) {
+                alert("Password harus lebih dari 5 karakter dan mengandung angka. Hanya boleh menggunakan underscore (_) sebagai karakter khusus.");
+                event.preventDefault();
+            }
+
+            // Validasi Email menggunakan regex sederhana
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailPattern.test(emailField.value)) {
+                alert("Email tidak valid.");
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

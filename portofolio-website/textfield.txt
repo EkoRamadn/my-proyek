@@ -1,0 +1,17 @@
+color primary:
+' #252B48;
+ #445069;
+ #5B9A8B;
+ #F7E987'
+
+
+ ponikem
+
+ gambarr yang digunakan
+ - back view 1 1
+ - back view 3 1
+ - back view 10 1
+ - back view 11 2
+ - back view 5 2
+ - wave png
+ - 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="popup-login active">
+        <div class="popup-login-top">
+            <!-- <i class="fa-regular fa-envelope"></i> -->
+            <div id="close">
+                <div class="line1"></div>
+                <div class="line2"></div>
+            </div>
+            <h1>Login</h1>
+            <p>inserisci i tuoi dati per accedere</p>
+            <form action="" id="myForm">
+                <div class="input-grup">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input required type="email" name="email" id="email">
+                    <label for="email">Email</label>
+                </div>
+                <p class="err Mail">periksa email anda lagi</p>
+                <div class="input-grup">
+                    <i class="fa-regular fa-key"></i>
+                    <input autocomplete="true" required type="password" name="password" id="password">
+                    <label for="password">Password</label>
+                </div>
+                <p class="err Pass">periksan password anda lagi</p>
+                <p>Non ricordi le credenziali?<a href=""> Recupera password</a></p>
+                <div class="checkBox">
+                    <input type="checkbox" name="checkPass" id="checkPass" onclick="togglePasswordVisibility()"">
+                    <label for="checkPass">Ricorda i dati di accesso</label>
+                </div>
+                <button type="submit" id="submitButton">Accedi</button>
+            </form>
+        </div>
+        <div class="popup-login-bottom">
+            <p>Non hai un account? <a href="">Registrati</a></p>
+        </div>
+    </div>
+
+    <div class="succes information" id="succesNontif">
+        <h2>Succesed</h2>
+        <p>Login berhasil</p>
+    </div>
+    <div class="failed information" id="fail">
+        <h2>failed</h2>
+        <p>Gagal melakukan login</p>
+    </div>
+
+    <div id="login">
+        login
+    </div>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/08902e88ba.js" crossorigin="anonymous"></script>
+    <!-- my script -->
+    <script src="js/main.js"></script>
+</body>
+</html>

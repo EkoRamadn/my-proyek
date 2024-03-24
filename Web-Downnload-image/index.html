@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Link</title>
+    <style>
+        :root {
+            --clr-primary-91: #1D5D9B;
+            --clr-primary-92: #75C2F6;
+            --clr-primary-93: #F4D160;
+            --clr-primary-94: #FBEEAC;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            position: relative;
+            font-size: 1rem;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .home,
+        main  {
+            width: 100vw;
+            min-height: 100vh;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 2rem;
+            background: var(--clr-primary-91);
+            color: black;
+            z-index: 900;
+        }
+
+        .header .logo {
+            font-size: 1.3rem;
+        }
+        
+        .logo {
+            color: var(--clr-primary-92);
+            text-transform: uppercase;
+        }
+
+        .logo span{
+            color: var(--clr-primary-94);
+        }
+
+        main {
+            display: flex;
+            padding: 10rem 5% 2rem;
+            flex-direction: column;
+            align-items: center;
+            /* background: linear-gradient(90deg,var(--clr-primary-91) 55%,var(--clr-primary-93) 45%); */
+        }
+
+        main h2 {
+            margin-bottom: 2rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        main .container {
+            width: 300px;
+            height: max-content;
+            padding: .5rem;
+            margin-bottom: 1rem;
+            background: var(--clr-primary-91);
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        input,button {
+            height: 1.5rem;
+            /* padding: 5%; */
+            border: 1px solid var(--clr-primary-91);
+        }
+
+        input{
+            flex: 1 1 60;
+            padding-left: 2%;
+        }
+
+        button{
+            flex: 1 1 30%;
+        }
+
+        article {
+            padding: 5%;
+            text-align: left;
+            line-height: 1.3;
+            background: #e5e5e5;
+        }
+
+        article h3 {
+            margin-bottom: .2rem;
+        }
+
+        article p {
+            text-align: justify;
+            text-indent: 2rem;
+        }
+
+        footer {
+            color: #5e5d5d;
+            background: #111111;
+            padding: 2rem 5% 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer span a {
+            color: #7e7e7e;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo">down<span>link</span>.</h1>
+    </header>
+    <section class="home">
+        <main>
+            <h2>Unduh Foto Maupun Vidio di google</h2>
+            <div class="container">
+                <input type="text" class="inputUrl" id="inputUrl" placeholder="masukan URL">
+                <button class="downloadBtn" id="downloadBtn">Download</button>
+            </div>
+
+            <article>
+                <h3>Unduh foto Video google Online</h3>
+                <p> Downlink adalah situs web yang memudahkan pengguna untuk mengunduh foto dan video dengan cepat melalui metode paste link. Tanpa perlu instalasi tambahan, pengguna hanya perlu mem-paste tautan yang tepat untuk mendapatkan file yang diinginkan. Downlink menawarkan kecepatan tinggi, kualitas baik, dan perlindungan privasi yang baik. Ini adalah solusi praktis untuk mengunduh konten favorit tanpa repot.</p>
+            </article>
+            <hr>
+            <article style="background: none;">
+                <h3>Cara Pengunaan</h3>
+                <ol style="padding-left:2rem">
+                    <li>Salin tautan (link) foto atau video yang ingin Anda unduh dari sumber yang diinginkan, seperti situs media sosial, layanan berbagi file, atau platform streaming.</li>
+                    <li>Buka situs web Downlink di browser Anda.</li>
+                    <li>Temukan kotak pencarian atau area yang ditunjukkan untuk mem-paste (tempelkan) tautan yang telah Anda salin sebelumnya.</li>
+                    <li>Tempelkan tautan yang disalin ke dalam kotak pencarian atau area yang ditunjukkan.</li>
+                    <li>Tekan tombol "Download" atau tombol serupa yang tersedia di situs Downlink.</li>
+                    <li>Tunggu sejenak sementara Downlink memproses tautan yang Anda berikan.</li>
+                    <li>Tunggu proses unduhan selesai. Waktu yang dibutuhkan akan tergantung pada ukuran file dan kecepatan internet Anda.</li>
+                    <li>Setelah unduhan selesai, file foto atau video akan tersimpan di perangkat Anda, siap untuk Anda akses dan gunakan sesuai keinginan.</li>
+                </ol>
+
+                <p style="margin-top: 1rem">Dengan mengikuti langkah-langkah di atas, Anda dapat dengan mudah menggunakan Downlink untuk mengunduh foto dan video melalui metode paste link. Pastikan untuk mematuhi hak cipta dan kebijakan privasi saat menggunakan konten yang Anda unduh.</p>
+            </article>
+        </main>
+    </section>
+    <footer>
+        <span>Social</span>
+        <span><a href="#"></a><a href="#"></a><a href=""></a></span>
+        <span>&copy; By <a href="#">Eko Ramadani</a> 2023</span>
+    </footer>
+
+    <script>
+        const inputUrl = document.getElementById("inputUrl");
+        const downloadBtn = document.getElementById("downloadBtn");
+
+        downloadBtn.addEventListener("click", async () => {
+            try{
+                const response = await fetch(inputUrl.value);
+                const file = await response.blob();
+                const link = document.createElement("a");
+                link.href = URL.createObjectURL(file);
+                link.download = new Date().getTime();
+                link.click();
+            }catch(error){
+                alert("failed to download file!");
+                alert(error);
+            }
+        })
+    </script>
+</body>
+</html>

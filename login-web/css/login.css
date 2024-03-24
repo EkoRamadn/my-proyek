@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    transition: .4s ease;
+}
+body{
+    background: var(--clr-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+p,label{font-size: 2rem;}
+h1{font-size: 2.9rem;}
+:root{
+    --clr-white: #fff;
+    --clr-black: #000;
+    --clr-primary01: rgb(70, 100, 249);
+    --clr-primary02: #fff;
+}
+.popup-login{
+    /* padding-top: 1em; */
+    position: relative;
+    width: 650px;
+    border-radius: .8rem;
+    background: var(--clr-white);
+    overflow: hidden;
+}
+.popup-login-bottom,.popup-login-top{
+    padding: 1.8rem;
+}
+.popup-login p > a{
+    color: var(--clr-primary01);
+    text-decoration: none;
+    font-weight: bold;
+}
+.popup-login h1{margin-bottom: .8rem;}
+.popup-login p{margin-bottom: 1.4rem;}
+.input-grup{
+    margin-bottom: 1.8rem;
+    position: relative;
+}
+.input-grup label{
+    position:absolute;
+    color: #757575;
+    background: transparent;
+    top:50%;
+    left: 15%;
+    transform: translateY(-50%);
+}
+.input-grup > input:hover ~ label{
+    top: 0;
+    left: 2%;
+    background: var(--clr-white);
+    padding-inline: .5rem;
+}
+.input-grup i{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #757575;
+}
+.input-grup > input{
+    width:100%;
+    aspect-ratio: 5/.7;
+    padding: .4rem 15%;
+    border-radius: .4rem;
+    background: transparent;
+    border: 1px solid var(--clr-black);
+    font-size: 2rem;
+}
+.input-grup > input:is(:hover,:focus){
+    border: 2px solid var(--clr-primary01); 
+}
+.checkBox{
+    display: flex;
+    align-items: center;
+}
+.checkBox > input{
+    margin-right: 10px;
+    width: 35px;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+}
+.checkBox > label{cursor: pointer;}
+button{
+    display: block;
+    width: 100%;
+    aspect-ratio: 5/.7;
+    margin-top: 2rem;
+    border-radius: .4rem;
+    background: var(--clr-primary01);
+    color: var(--clr-white);
+    cursor:pointer;
+    font-size: 1.9rem;
+    font-weight: bold;
+}
+.popup-login-bottom{
+    background: #eef2ff;
+    text-align: center;
+    padding-bottom: .5rem;
+}
+#close{
+    position: absolute;
+    cursor: pointer;
+    top: 2%;
+    right:2%;
+    width: 40px;
+    aspect-ratio: 1/1;
+    /* background: red; */
+}
+#close div{
+    width: 100%;
+    height: 7px;
+    border-radius: 5px;
+    background: var(--clr-black);
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+}
+#close .line1{
+    transform: rotateZ(45deg);
+}
+#close .line2{
+    transform: rotateZ(-45deg);
+}
